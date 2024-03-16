@@ -1,0 +1,122 @@
+
+<html>
+<head>
+<title> Students Database </title>
+
+<script type="text/javascript">
+
+function validation() {
+var name = document.getElementById("name").value;
+var email = document.getElementById("email").value;
+var age = document.getElementById("age").value;
+var dob = document.getElementById("dob").value;
+
+if (name == "" && email == "" && age == "" && dob == "" ) {
+    alert("Please enter values for Name, Email Address, Age and Date of Birth");
+    return false;
+  }
+else if (email == "" && age == "" && dob == "") {
+    alert("Please enter values for Email Address, Age and Date of Birth");
+    return false;
+  }
+else if (name == "" && age == "" && dob == "") {
+    alert("Please enter values for Name, Age and Date of Birth");
+    return false;
+  }
+else if (name == "" && email == "" && dob == "" ) {
+    alert("Please enter values for Name, Email Address and Date of Birth");
+    return false;
+  }
+else if (name == "" && email == "" && age == "") {
+    alert("Please enter values for Name, Email Address and Age");
+    return false;
+  }
+else if (!email.includes("@")) {
+    alert("Please enter a valid Email Address");
+    return false;
+  }
+
+else if (!email.includes(".com")) {
+    alert("Please enter a valid Email Address");
+    return false;
+  }
+
+else if (age == "" && dob == "") {
+    alert("Please enter values for Age and Date of Birth");
+    return false;
+  }
+
+else if (age<= 0) {
+    alert("Please enter a Positive Number for Age");
+    return false;
+  }
+
+else if (dob == "") {
+    alert("Please enter value for Date of Birth");
+    return false;
+  }
+}
+
+</script>
+
+<style>
+table
+{
+font-family:garamond;
+background-color:#333333;
+color:white;
+border-radius:25px;
+}
+button 
+{
+background-color:green;
+color:white;
+height:30px;
+width:100px;
+border-radius:25px;
+}
+button:hover
+{
+background-color:white;
+color:green;
+}
+span
+{
+font-size:13px;
+color:red;
+}
+
+</style>
+</head>
+
+<body>
+<!-- VALIDATION WITH JAVASCRIPT-->
+<br><br><br><br>
+
+<h1 align="center"> Enter Student Details </h1>
+
+<form action= "save.php" onsubmit="return validation()" method="POST">
+<table align="center" cellspacing="15"> 
+
+<tr><td><span class='asterisk'>*</span>
+Name<td><input type="text" id="name" name="name">
+<br><span id="namee"></span></td></tr> 
+
+<tr><td><span class='asterisk'>*</span>
+Email Address<td><input type="text" id="email" name="email">
+<br><span id="emaill"></span></td></tr>
+
+<tr><td><span class='asterisk'>*</span>
+Age<td><input type="number" id="age" name="age">
+<br><span id="agee"></span></td></tr>
+
+<tr><td><span class='asterisk'>*</span>
+Date of Birth<td><input type="date" id="dob" name="dob">
+<br><span id="dobb"></span></td></tr>
+
+<tr><td align="center" colspan="2"><button name=submit>Save</button></td></tr>
+
+</table>
+</form>
+</body>
+</html>
